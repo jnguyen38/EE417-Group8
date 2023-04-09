@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../style/css1.css">
+    <link rel="stylesheet" href="../style/contact.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
@@ -55,7 +56,33 @@
     </section><br><br>
     <section class="cont">
     <h501>Address: 15 Dublin Road, Dublin, Ireland </h501>
-    </section><br><br><br><br>
+    </section>
+
+    <div id="contact-main" class="contact-main">
+        <div id="contact-container" class="contact-container">
+            <form name="contact-Form" id="contact-Form"  onsubmit="">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your First Name..">
+          
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your Last Name..">
+          
+              <label for="email">Email ID</label>
+              <input type="text" id="email" name="email"  placeholder="Your Email ID..">
+
+              <label for="phone">Contact Number</label>
+              <input type="text" id="phone" name="phone"  placeholder="Your Contact No..">
+
+              <label for="msg">Message</label>
+              <textarea id="msg" name="msg" placeholder="Tell us more.." style="height:100px"></textarea>
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    
+    
+    <br><br><br><br>
     <!-----------FOOTER--------->  
     <div class = "footer" id = "footer">
         <div class = "footer-left">
