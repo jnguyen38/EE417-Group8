@@ -33,7 +33,7 @@ function addToOrder(productName, price) {
     // add event listeners to the buttons
     removeCell.querySelector('button').addEventListener('click', () => {
       newRow.remove();
-      checkorder();
+      hidetable();
     });
     reduceCell.querySelector('button').addEventListener('click', () => {
       const quantity = Number(quantityCell.textContent);
@@ -41,7 +41,7 @@ function addToOrder(productName, price) {
         quantityCell.textContent = quantity - 1;
       } else {
         newRow.remove();
-        checkorder();
+        hidetable();
       }
     });
 
@@ -59,9 +59,9 @@ function addToOrder(productName, price) {
 }
 
 // to check if the order is empty or not
-function checkorder(){
+function hidetable(){
   const table = document.querySelector('.table-order');
-const numRows = table.rows.length - 1; // exclude the header row
+  const numRows = table.rows.length - 1; // exclude the header row
   if(numRows==0){
   console.log("null numRows=0");
   table.style.display="none";}
@@ -88,14 +88,25 @@ menuTable.addEventListener('click', (event) => {
   }
 });
 
+function checkorderempty(){
+  const table = document.querySelector('.table-order');
+  const numRows = table.rows.length - 1; // exclude the header row
+  if(numRows==0){
+  return false;
+  }
+  else
+  return true;
+}
 // add an event listener to the order button
 orderButton.addEventListener('click', () => {
   // alert the user that their order has been placed
-  alert('Your order has been placed! Your order will be ready within 30 mins');
- 
-  while (orderTable.rows.length > 1) {
-    orderTable.deleteRow(0);
-  }
-  checkorder();
   
+  if(checkorderempty()==false)
+    alert('Your basket is empty,please select an item');
+  else{
+    alert('Your order has been placed! Your order will be ready within 30 mins');
+    while (orderTable.rows.length > 1) 
+      orderTable.deleteRow(0);
+    hidetable();
+  }
 });
