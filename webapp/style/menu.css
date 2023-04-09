@@ -38,11 +38,22 @@
     width: 98%;
     margin: auto;
 }
+.remove{
+    size: 30px;
+    font-size: medium;
+    border:none;
+    background:none;
+    color: red;
+}
+.remove:hover{
+    border: solid black 2px;
+    color: white;
+}
 
 .your-order > tr, td {
     border: 1px solid black;
+    padding: 8px;
 }
-
 .menu-table {
     width: 80%;
 }
