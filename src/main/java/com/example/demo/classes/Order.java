@@ -1,9 +1,6 @@
 package com.example.demo.classes;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Map;
 
@@ -12,19 +9,21 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
+
+    @ElementCollection
+    @MapKeyColumn(name = "item_name")
     private Map<String, Integer> items;
 
-    public Order() {
-    }
+    public Order() {}
 
-    public Order(Map<String, Integer> items) {
+    public Order(Integer id, Map<String, Integer> items) {
+        this.id = id;
         this.items = items;
     }
 
     public Map<String, Integer> getItems() {
         return items;
     }
-
     public void setItems(Map<String, Integer> items) {
         this.items = items;
     }
@@ -32,8 +31,6 @@ public class Order {
     public void setId(Integer id) {
         this.id = id;
     }
-
-
     public Integer getId() {
         return id;
     }

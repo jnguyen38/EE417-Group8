@@ -1,7 +1,7 @@
 package com.example.demo.api;
 
 import com.example.demo.classes.User;
-import com.example.demo.repositories.OrderRepository;
+import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ public class UserRestController {
 
     // This means to get the bean called userRepository
     @Autowired
-    private OrderRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
     private UserService userService;
 
