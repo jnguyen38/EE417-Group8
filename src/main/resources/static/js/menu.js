@@ -1,7 +1,7 @@
 // get references to the relevant DOM elements
 const menuTable = document.querySelector('.menu-table');
 const orderTable = document.querySelector('.table-order');
-const orderButton = document.querySelector('button[type="button"]');
+const orderButton = document.getElementById('order-button');
 
 // create a new function to handle adding items to the order
 function addToOrder(productName, price) {
@@ -27,7 +27,7 @@ function addToOrder(productName, price) {
     productCell.textContent = productName;
     priceCell.textContent = "\u20AC"+price;
     quantityCell.textContent = "1";
-    reduceCell.innerHTML = '<button class="reduce"style="width: 25px;" type="button">-</button>';
+    reduceCell.innerHTML = '<button class="reduce" style="width: 25px;" type="button">-</button>';
     removeCell.innerHTML = '<button class="remove" type="button">X</button>';
     
     // add event listeners to the buttons
@@ -59,17 +59,17 @@ function addToOrder(productName, price) {
 }
 
 // to check if the order is empty or not
-function hidetable(){
+function hideTable(){
   const table = document.querySelector('.table-order');
   const numRows = table.rows.length - 1; // exclude the header row
-  if(numRows==0){
-  console.log("null numRows=0");
-  table.style.display="none";}
+  if (numRows === 0) {
+    console.log("null numRows=0");
+    table.style.display = "none";
+  }
 }
 
 // add an event listener to the menu table
 menuTable.addEventListener('click', (event) => {
-  
   // check if the event target was a button
   if (event.target.tagName === 'BUTTON') {
 
@@ -91,22 +91,20 @@ menuTable.addEventListener('click', (event) => {
 function checkorderempty(){
   const table = document.querySelector('.table-order');
   const numRows = table.rows.length - 1; // exclude the header row
-  if(numRows==0){
-  return false;
-  }
-  else
-  return true;
+
+  return numRows !== 0;
 }
+
 // add an event listener to the order button
 orderButton.addEventListener('click', () => {
   // alert the user that their order has been placed
   
-  if(checkorderempty()==false)
+  if (checkorderempty() === false)
     alert('Your basket is empty,please select an item');
   else{
     alert('Your order has been placed! Your order will be ready within 30 mins');
     while (orderTable.rows.length > 1) 
       orderTable.deleteRow(0);
-    hidetable();
+    hideTable();
   }
 });
