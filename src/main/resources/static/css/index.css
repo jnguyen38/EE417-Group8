@@ -1,0 +1,14 @@
+/*
+    This is our index.css file. Since the css is not that large, we found it easiest and most convenient to
+    import all of my css files into this one index file and use that as a single style import in our html
+    pages. By doing this, we only need to import one css file for all any html page, but our css files
+    remain organized and modularized.
+*/
+
+@import "root.css";
+@import "components/contact.css";
+@import "components/css1.css";
+@import "components/login.css";
+@import "components/menu.css";
+@import "components/register.css";
+@import "components/order.css";
