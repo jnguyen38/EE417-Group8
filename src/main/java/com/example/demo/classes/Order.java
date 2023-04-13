@@ -5,13 +5,13 @@ import jakarta.persistence.*;
 import java.util.Map;
 
 @Entity
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @ElementCollection
-    @MapKeyColumn(name = "item_name")
     private Map<String, Integer> items;
 
     public Order() {}
