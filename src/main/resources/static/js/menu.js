@@ -7,12 +7,12 @@ const orderButton = document.getElementById('order-button');
 function addToOrder(productName, price) {
   // check if the product is already in the order
   const existingRow = Array.from(orderTable.rows).find(row => row.cells[0].textContent === productName);
+
   if (existingRow) {
     // increment the quantity
     const quantityCell = existingRow.cells[2];
-    quantityCell.textContent = Number(quantityCell.textContent) + 1;
-  } 
-  else {
+    quantityCell.textContent = (Number(quantityCell.textContent) + 1).toString();
+  } else {
     // create a new row for the order table
     const newRow = document.createElement('tr');
 
