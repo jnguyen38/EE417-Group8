@@ -1,18 +1,18 @@
 // get references to the relevant DOM elements
 const menuTable = document.querySelector('.menu-table');
 const orderTable = document.querySelector('.table-order');
-const orderButton = document.getElementById('order-button');
+const orderButton = document.getElementById("order-button");
 
 // create a new function to handle adding items to the order
 function addToOrder(productName, price) {
   // check if the product is already in the order
   const existingRow = Array.from(orderTable.rows).find(row => row.cells[0].textContent === productName);
-
   if (existingRow) {
     // increment the quantity
     const quantityCell = existingRow.cells[2];
-    quantityCell.textContent = (Number(quantityCell.textContent) + 1).toString();
-  } else {
+    quantityCell.textContent = Number(quantityCell.textContent) + 1;
+  }
+  else {
     // create a new row for the order table
     const newRow = document.createElement('tr');
 
@@ -29,7 +29,7 @@ function addToOrder(productName, price) {
     quantityCell.textContent = "1";
     reduceCell.innerHTML = '<button class="reduce" style="width: 25px;" type="button">-</button>';
     removeCell.innerHTML = '<button class="remove" type="button">X</button>';
-    
+
     // add event listeners to the buttons
     removeCell.querySelector('button').addEventListener('click', () => {
       newRow.remove();
@@ -51,7 +51,7 @@ function addToOrder(productName, price) {
     newRow.appendChild(quantityCell);
     newRow.appendChild(reduceCell);
     newRow.appendChild(removeCell);
-    
+
 
     // add the row to the order table
     orderTable.appendChild(newRow);
@@ -59,17 +59,17 @@ function addToOrder(productName, price) {
 }
 
 // to check if the order is empty or not
-function hideTable(){
+function hidetable(){
   const table = document.querySelector('.table-order');
   const numRows = table.rows.length - 1; // exclude the header row
   if (numRows === 0) {
     console.log("null numRows=0");
-    table.style.display = "none";
-  }
+    table.style.display="none";}
 }
 
 // add an event listener to the menu table
 menuTable.addEventListener('click', (event) => {
+
   // check if the event target was a button
   if (event.target.tagName === 'BUTTON') {
 
@@ -84,27 +84,68 @@ menuTable.addEventListener('click', (event) => {
     const numericPrice = Number(price.replace(/[^0-9.-]+/g, ''));
 
     // add the item to the order
-    addToOrder(productName, numericPrice);  
+    addToOrder(productName, numericPrice);
   }
 });
 
 function checkorderempty(){
   const table = document.querySelector('.table-order');
   const numRows = table.rows.length - 1; // exclude the header row
-
   return numRows !== 0;
 }
-
 // add an event listener to the order button
-orderButton.addEventListener('click', () => {
-  // alert the user that their order has been placed
-  
-  if (checkorderempty() === false)
-    alert('Your basket is empty,please select an item');
-  else{
-    alert('Your order has been placed! Your order will be ready within 30 mins');
-    while (orderTable.rows.length > 1) 
-      orderTable.deleteRow(0);
-    hideTable();
+orderButton.addEventListener('click', async () => {
+  if (checkorderempty() === false) {
+    alert('Your basket is empty, please select an item');
+  } else {
+    // Construct the order object
+    const orderItems = Array.from(orderTable.rows)
+        .slice(1) // exclude the header row
+        .reduce((items, row) => {
+          const itemName = row.cells[0].textContent;
+          items[itemName] = parseInt(row.cells[2].textContent, 10);
+          return items;
+        }, {});
+
+    // Send the order to the server
+    const response = await fetch('/api/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ items: orderItems }),
+    });
+    if (response.ok) {
+      alert('Your order has been placed successfully!');
+      resetOrderForm(); // reset the order form
+    } else {
+      alert('An error occurred while placing your order. Please try again.');
+    }
   }
 });
+
+function resetOrderForm() {
+  // Clear the order table except for the header row
+  const rowCount = orderTable.rows.length;
+  for (let i = rowCount - 1; i > 0; i--) {
+    orderTable.deleteRow(i);
+  }
+
+  // Reset the select elements
+  const selects = document.querySelectorAll('.item-select');
+  selects.forEach(select => {
+    select.selectedIndex = 0;
+  });
+
+  // Reset the quantity inputs
+  const quantities = document.querySelectorAll('.item-quantity');
+  quantities.forEach(quantity => {
+    quantity.value = '';
+  });
+
+  // Reset the order total
+  document.querySelector('#order-total').textContent = '0';
+}
+
+
+;

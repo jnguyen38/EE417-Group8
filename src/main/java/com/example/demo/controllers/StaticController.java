@@ -9,32 +9,32 @@ public class StaticController {
     public String index() {
         return "index";
     }
-    @RequestMapping("/about")
+    @RequestMapping("/about.html")
     public String about() {
-        return "about";
+        return "about.html";
     }
-    @RequestMapping("/donate")
+    @RequestMapping("/donate.html")
     public String donate() {
-        return "donate";
+        return "donate.html";
     }
-    @RequestMapping("/gallery")
+    @RequestMapping("/gallery.html")
     public String gallery() {
-        return "gallery";
+        return "gallery.html";
     }
-    @RequestMapping("/contact")
+    @RequestMapping("/contact.html")
     public String contact() {
-        return "contact";
+        return "contact.html";
     }
-    @RequestMapping("/register")
+    @RequestMapping("/register.html")
     public String register() {
-        return "register";
+        return "register.html";
     }
-    @RequestMapping("/menu")
+    @RequestMapping("/menu.html")
     public String menu() {
-        return "menu";
+        return "menu.html";
     }
-    @RequestMapping("/admin")
+    @RequestMapping("/admin.html")
     public String admin() {
-        return "admin";
+        return "admin.html";
     }
 }
