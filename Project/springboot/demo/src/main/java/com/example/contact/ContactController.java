@@ -32,7 +32,7 @@ public class ContactController {
             return ResponseEntity.badRequest().body(errors);
         }
         contactService.saveContact(contact);
-        return ResponseEntity.ok().body("Contact saved successfully."); // Add a success message
+        return ResponseEntity.ok().body("Thank you! We have received your contact information."); // Add a success message
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
