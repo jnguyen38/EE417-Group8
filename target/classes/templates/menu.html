@@ -24,16 +24,19 @@
 <body>
     <custom-header></custom-header>
     
-    <div class="your-order" style="overflow:scroll; height:92%;">
-        <h1>Your Order</h1>
-        <table class="table-order" style="border: solid 1px ;display:none;">
-            <th>Item</th>
-            <th>Cost</th>
-            <th>Qty</th>
-            <th></th>
-            <th></th>
+    <div class="your-order">
+        <h1 class="fw-3 fs-lg my-5">Your Order</h1>
+        <div class="thin white line"></div>
+        <table class="table-order" style="display:none; overflow-y: scroll">
+            <tr>
+                <th>Item</th>
+                <th>Cost</th>
+                <th>Qty</th>
+                <th></th>
+                <th></th>
+            </tr>
         </table>
-        <button type="button" id="order-button">Order Now!</button>
+        <button type="button" class="fw-3 fs-md" id="order-button">Order Now</button>
     </div>
     
     

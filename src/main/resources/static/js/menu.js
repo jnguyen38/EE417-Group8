@@ -128,6 +128,7 @@ orderButton.addEventListener('click', async () => {
 function resetOrderForm() {
   // Clear the order table except for the header row
   const rowCount = orderTable.rows.length;
+  orderTable.style.display = "none";
   for (let i = rowCount - 1; i > 0; i--) {
     orderTable.deleteRow(i);
   }
@@ -147,6 +148,3 @@ function resetOrderForm() {
   // Reset the order total
   document.querySelector('#order-total').textContent = '0';
 }
-
-
-;
