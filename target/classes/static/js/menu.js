@@ -88,14 +88,15 @@ menuTable.addEventListener('click', (event) => {
   }
 });
 
-function checkorderempty(){
+function checkEmptyOrder(){
   const table = document.querySelector('.table-order');
   const numRows = table.rows.length - 1; // exclude the header row
   return numRows !== 0;
 }
+
 // add an event listener to the order button
 orderButton.addEventListener('click', async () => {
-  if (checkorderempty() === false) {
+  if (checkEmptyOrder() === false) {
     alert('Your basket is empty, please select an item');
   } else {
     // Construct the order object
@@ -108,7 +109,7 @@ orderButton.addEventListener('click', async () => {
         }, {});
 
     // Send the order to the server
-    const response = await fetch('/api/order', {
+    const response = await fetch('/api/orders/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

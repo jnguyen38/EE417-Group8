@@ -37,4 +37,12 @@ public class StaticController {
     public String admin() {
         return "admin.html";
     }
+    @RequestMapping("/news.html")
+    public String news() {
+        return "news.html";
+    }
+    @RequestMapping("/branches.html")
+    public String branches() {
+        return "branches.html";
+    }
 }
