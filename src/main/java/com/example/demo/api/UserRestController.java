@@ -2,8 +2,8 @@ package com.example.demo.api;
 
 import com.example.demo.classes.User;
 import com.example.demo.repositories.UserRepository;
-import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -15,13 +15,24 @@ public class UserRestController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private UserService userService;
+    private PasswordEncoder passwordEncoder;
 
     // Map POST Request for adding to the MySQL Database
     @PostMapping(path="/add")
     public @ResponseBody String addUser (@RequestBody User user) {
         // Save to MySQL Repo
-        userService.saveUser(user);
+        User newUser = new User(
+                user.getId(),
+                user.getRole(),
+                user.getEmail(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getNumber(),
+                user.getAddress(),
+                user.getEircode(),
+                passwordEncoder.encode(user.getPassword())
+        );
+        userRepository.save(newUser);
         return "Saved";
     }
 

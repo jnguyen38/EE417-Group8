@@ -45,4 +45,8 @@ public class StaticController {
     public String branches() {
         return "branches.html";
     }
+    @RequestMapping("order.html")
+    public String order() {
+        return "order.html";
+    }
 }

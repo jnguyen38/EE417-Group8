@@ -109,42 +109,20 @@ orderButton.addEventListener('click', async () => {
         }, {});
 
     // Send the order to the server
-    const response = await fetch('/api/orders/add', {
+    await fetch('/api/orders/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ items: orderItems }),
+      body: JSON.stringify({ items: orderItems })
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        alert('An error occurred while placing your order. Please try again.');
+      }
+    }).then(data => {
+      window.location.replace(`order.html?id=${data}`)
     });
-    if (response.ok) {
-      alert('Your order has been placed successfully!');
-      resetOrderForm(); // reset the order form
-    } else {
-      alert('An error occurred while placing your order. Please try again.');
-    }
   }
 });
-
-function resetOrderForm() {
-  // Clear the order table except for the header row
-  const rowCount = orderTable.rows.length;
-  orderTable.style.display = "none";
-  for (let i = rowCount - 1; i > 0; i--) {
-    orderTable.deleteRow(i);
-  }
-
-  // Reset the select elements
-  const selects = document.querySelectorAll('.item-select');
-  selects.forEach(select => {
-    select.selectedIndex = 0;
-  });
-
-  // Reset the quantity inputs
-  const quantities = document.querySelectorAll('.item-quantity');
-  quantities.forEach(quantity => {
-    quantity.value = '';
-  });
-
-  // Reset the order total
-  document.querySelector('#order-total').textContent = '0';
-}

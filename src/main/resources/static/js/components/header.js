@@ -7,10 +7,10 @@ class Header extends HTMLElement {
         this.innerHTML = `
         <!--Universal site header-->
         <header class="d-flex jc-sb header">
-            <a class="ml-5 d-flex-row-c" href=""><img src="images/logo_main.jpg" alt=""></a>
+            <a class="ml-5 d-flex-row-c" href="index.html"><img src="images/logo_main.jpg" alt=""></a>
             <div class="navbar mr-2">
                 <ul>
-                  <li><a href=""><b>Home</b></a></li>
+                  <li><a href="index.html"><b>Home</b></a></li>
                   <li><a href="menu.html"><b>View Menu</b></a></li>
                   <li><a href="about.html"><b>About Us</b></a></li>
                   <li><a href="gallery.html"><b>Gallery</b></a></li>
