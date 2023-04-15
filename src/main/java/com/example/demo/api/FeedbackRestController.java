@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "/api/feedback")
 public class FeedbackRestController {
-    // This means to get the bean called orderRepository
+    // This means to get the bean called feedbackRepository
     @Autowired
     private FeedbackRepository feedbackRepository;
 
-    // Map POST Request for adding orders to the MySQL Database
+    // Map POST Request for adding feedback to the MySQL Database
     @PostMapping(path="/add")
     public @ResponseBody String addFeedback (@RequestBody Feedback feedback) {
         // Save to MySQL Repo
@@ -23,7 +23,7 @@ public class FeedbackRestController {
         return "Saved";
     }
 
-    // Map GET Request for receiving all information about users
+    // Map GET Request for receiving all information about feedback
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Feedback> getAllFeedback() {
         return feedbackRepository.findAll();

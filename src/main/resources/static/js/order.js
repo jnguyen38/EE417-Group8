@@ -1,5 +1,6 @@
 const orderId = document.getElementById("orderId");
 const orderTable = document.getElementById("orderTable");
+const submit = document.getElementById('submit');
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
@@ -53,3 +54,25 @@ if (queryId) {
             });
         });
 }
+
+ submit.addEventListener('click', async() => {
+    document.querySelector('input[name="rate"]:checked').value;
+    if (!queryId) {
+        alert("Invalid order id");
+        return;
+    }
+
+    let rating = document.querySelector('input[name="rate"]:checked').value;
+    let message = document.querySelector('textarea[name="message"]').value;;
+    let id = queryId;
+
+    fetch(`/api/feedback/add`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({id, message, rating})
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        });
+});

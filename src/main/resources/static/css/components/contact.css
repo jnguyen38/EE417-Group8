@@ -3,7 +3,7 @@
     margin-top: 20px;
     margin-left: 70px;
     margin-bottom: 50px;
-    font-family: 'Kalam', cursive;
+    font-family: Outfit, sans-serif;
 }
 
 .contact-container > form > input[type=text], textarea {
@@ -27,7 +27,7 @@
     width: 80%;
     margin:auto;
     display: block;
-    font-family: 'Kalam', cursive;
+    font-family: Outfit, sans-serif;
     font-size: 20px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .contact-container > form > input::placeholder {
-    font-family: 'Kalam', cursive;
+    font-family: Outfit, sans-serif;
 }
 
 .contact-container {

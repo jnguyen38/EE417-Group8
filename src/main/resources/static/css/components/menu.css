@@ -60,7 +60,7 @@
     font-size: 40px;
     padding-bottom: 20px;
     padding-top: 20px;
-    font-family: 'Kalam', cursive;
+    font-family: Outfit, sans-serif;
 }
 
 .menu-table > table {
@@ -70,9 +70,9 @@
 
 
 .menu-table > tr, td {
-    border: 0px solid;
+    border: none;
     text-align: left;
-    font-family: 'Kalam', cursive;
+    font-family: Outfit, sans-serif;
 }
 
 
