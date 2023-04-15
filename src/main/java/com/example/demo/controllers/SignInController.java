@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class SignInController {
-    @GetMapping("/signin")
+    @GetMapping("/signin.html")
     public String signinForm(Model model) {
         model.addAttribute("user", new User());
-        return "signin";
+        return "signin.html";
     }
 }

@@ -32,8 +32,8 @@ public class UserRestController {
     }
 
     // Map GET Request for finding a specific user based on a Path Variable
-    @GetMapping("/find/{user}")
-    public @ResponseBody User findUser(@PathVariable String user){
-        return userRepository.findByUsernameIs(user);
+    @GetMapping("/find/{email}")
+    public @ResponseBody User findUser(@PathVariable String email){
+        return userRepository.findByEmailIs(email);
     }
 }

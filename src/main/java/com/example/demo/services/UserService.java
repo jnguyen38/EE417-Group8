@@ -4,6 +4,6 @@ import com.example.demo.classes.User;
 
 public interface UserService {
     void saveUser(User user);
-    User findByUsernameIs(String username);
+    User findByEmailIs(String email);
 
 }

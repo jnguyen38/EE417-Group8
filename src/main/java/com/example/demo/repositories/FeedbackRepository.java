@@ -1,10 +1,8 @@
 package com.example.demo.repositories;
 
-import com.example.demo.classes.User;
+import com.example.demo.classes.Feedback;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    User findByEmailIs(String email);
-}
+public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {}

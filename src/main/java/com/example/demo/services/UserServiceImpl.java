@@ -17,19 +17,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(User user) {
         User newUser = new User(
-                user.getUsername(),
-                passwordEncoder.encode(user.getPassword()),
+                user.getId(),
+                user.getRole(),
                 user.getEmail(),
                 user.getFirstName(),
                 user.getLastName(),
-                user.getRole(),
-                user.getId()
+                user.getNumber(),
+                user.getAddress(),
+                user.getEircode(),
+                passwordEncoder.encode(user.getPassword())
                 );
         userRepository.save(newUser);
     }
 
     @Override
-    public User findByUsernameIs(String username) {
-        return userRepository.findByUsernameIs(username);
+    public User findByEmailIs(String email) {
+        return userRepository.findByEmailIs(email);
     }
 }
