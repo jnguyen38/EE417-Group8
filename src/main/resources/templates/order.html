@@ -26,70 +26,39 @@
 <body>
     <custom-header></custom-header>
     
-    <div class = "order-main">
-        <h1>Order Summary</h1>
-        <table style=" margin:auto;">
+    <div class = "order-main d-flex-col-c">
+        <h1 class="fw-7">Order Summary</h1>
+        <div class="thin black line"></div>
+        <p class="fs-smd fw-2 my-5">Order ID: <span class="fw-5" id="orderId"></span></p>
+        <table id="orderTable">
             <tr>
-                <td>Classic Hotdog</td>
-                <td>&euro; 5.00</td>
-            </tr>
-            <tr>
-                <td>Chilli Cheese Hotdog</td>
-                <td>&euro; 5.00</td>
-            </tr>
-            <tr>
-                <td>BBQ Hotdog</td>
-                <td>&euro; 5.00</td>
-            </tr>
-            <tr>
-                <td><b>Total</b></td>
-                <td><b>&euro; 15.00</b></td>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Total Cost</th>
             </tr>
         </table>
     </div>
 
-    <div class="star-container">
-        <div class="star-post">
-          <div class="star-text">Thanks for rating us!</div>
-        </div>
-        <div class="star-widget">
-          <input type="radio" name="rate" id="rate-5">
-          <label for="rate-5" class="fas fa-star clickable"></label>
-          <input type="radio" name="rate" id="rate-4">
-          <label for="rate-4" class="fas fa-star clickable"></label>
-          <input type="radio" name="rate" id="rate-3">
-          <label for="rate-3" class="fas fa-star clickable"></label>
-          <input type="radio" name="rate" id="rate-2">
-          <label for="rate-2" class="fas fa-star clickable"></label>
-          <input type="radio" name="rate" id="rate-1">
-          <label for="rate-1" class="fas fa-star clickable"></label>
-          <form class="rateForm" action="#">
-            <header></header>
-            <div class="star-textarea">
-              <textarea cols="30" placeholder="Describe your experience.."></textarea>
+    <div class="d-flex-col-c my-5">
+        <form class="star-container rounded my-5 d-flex-col-c p-5 gap-1" method="post">
+            <div class="star-widget mb-3">
+                <input type="radio" name="rate" id="rate-5" value=5>
+                <label for="rate-5" class="fas fa-star clickable"></label>
+                <input type="radio" name="rate" id="rate-4" value=4>
+                <label for="rate-4" class="fas fa-star clickable"></label>
+                <input type="radio" name="rate" id="rate-3" value=3>
+                <label for="rate-3" class="fas fa-star clickable"></label>
+                <input type="radio" name="rate" id="rate-2" value=2>
+                <label for="rate-2" class="fas fa-star clickable" ></label>
+                <input type="radio" name="rate" id="rate-1" value=1>
+                <label for="rate-1" class="fas fa-star clickable"></label>
             </div>
-            <div class="star-btn">
-              <button type="submit">Post</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <script>
-        const btn = document.querySelector("button");
-        const post = document.querySelector(".star-post");
-        const widget = document.querySelector(".star-widget");
-        const editBtn = document.querySelector(".star-edit");
-        btn.onclick = ()=>{
-          widget.style.display = "none";
-          post.style.display = "block";
-          editBtn.onclick = ()=>{
-            widget.style.display = "block";
-            post.style.display = "none";
-          }
-          return false;
-        }
-      </script>
-    
+
+            <label><textarea cols="30" class="rounded" placeholder="Describe your experience"></textarea></label>
+            <input type="submit" value="Post" class="rounded fs-sm fw-5 clickable" id="submit">
+        </form>
+    </div>
     
     <br><br><br><br><br><br><br><br><br>
 
@@ -99,6 +68,8 @@
         <p100><b>"At Snack Shack, we believe in treating yourself to something delicious every day!"</b></p100>
     </section> -->
     <script src="js/components/header.js" type="text/javascript"></script>
+    <script src="js/order.js" type="text/javascript"></script>
+
 
 </body>
 </html>
