@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!--Universal site header-->
+    <header class="d-flex jc-sb header">
+        <a class="ml-5 d-flex-row-c" href="index.html"><img src="images/logo_main.jpg" alt=""></a>
+        <div class="navbar mr-2">
+            <ul>
+                <li><a href="index.html"><p class="fs-xs">Home</p></a></li>
+                <li><a href="menu.html"><p class="fs-xs">MENU</p></a></li>
+                <li><a href="about.html"><p class="fs-xs">About Us</p></a></li>
+                <li><a href="gallery.html"><p class="fs-xs">Gallery</p></a></li>
+                <li><a href="contact.html"><p class="fs-xs">Contact Us</p></a></li>
+                <li sec:authorize="isAnonymous()"><a href="signin.html" class="signInBtn"><p class="fs-xs">Login</p></a></li>
+                <li sec:authorize="isAnonymous()"><a href="register.html" class="signInBtn"><p class="fs-xs">Register</p></a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="admin.html" class="signInBtn"><p class="fs-xs">Admin</p></a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="signInBtn"><p class="fs-xs">Logout</p></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="d-flex-col-l m-5 p-5 gap-3">
+        <h1 class="fw-5 fs-xl">Admin Page</h1>
+        <p class="fw-2 fs-sm">
+            Here, you can find everything you need to know about feedback, contact messages, or
+            users that have been entered throughout the site. Use the navigation bar below to navigate to each table
+        </p>
+
+        <section class="optionBar d-flex mt-2">
+            <div class="d-flex-row-c option clickable no-select clicked" id="userSelect">
+                <p class="fw-2 fs-sm">Users</p>
+            </div>
+            <div class="d-flex-row-c option clickable no-select" id="feedbackSelect">
+                <p class="fw-2 fs-sm">Feedback</p>
+            </div>
+            <div class="d-flex-row-c option clickable no-select" id="messageSelect">
+                <p class="fw-2 fs-sm">Messages</p>
+            </div>
+        </section>
+
+        <table class="rounded adminTable" id="userTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Address</th>
+                <th>Role</th>
+                <th>Password</th>
+            </tr>
+        </table>
+
+        <table class="rounded adminTable" id="feedbackTable">
+            <tr>
+                <th>Order Id</th>
+                <th>Rating</th>
+                <th>Message</th>
+            </tr>
+        </table>
+
+        <table class="rounded adminTable" id="messageTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Message</th>
+            </tr>
+        </table>
+
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="js/components/footer.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

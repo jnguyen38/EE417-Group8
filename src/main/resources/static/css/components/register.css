@@ -1,7 +1,10 @@
 
 #registerForm label {
     font-size: small;
+    font-weight: 200;
+
 }
+
 
 #registerForm input[type="password"], #registerForm input[type="text"], textarea {
     width: 100%;

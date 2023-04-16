@@ -1,0 +1,31 @@
+main {
+    color: #333333;
+}
+
+#feedbackTable, #messageTable {
+    display: none;
+}
+
+.optionBar {
+    height: 100px;
+}
+
+.option {
+    width: 120px;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    transition: 200ms ease-in-out;
+}
+
+.option.clicked {
+    width: 155px;
+    height: 80px;
+    background-color: #FF6A13;
+}
+
+.adminTable {
+    width: 100%;
+    border-spacing: 0;
+}
+
