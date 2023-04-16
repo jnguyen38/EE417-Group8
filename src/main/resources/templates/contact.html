@@ -23,7 +23,7 @@
         <div class="navbar mr-2">
             <ul>
                 <li><a href="index.html"><p class="fs-xs">Home</p></a></li>
-                <li><a href="menu.html"><p class="fs-xs">View Menu</p></a></li>
+                <li><a href="menu.html"><p class="fs-xs">MENU</p></a></li>
                 <li><a href="about.html"><p class="fs-xs">About Us</p></a></li>
                 <li><a href="gallery.html"><p class="fs-xs">Gallery</p></a></li>
                 <li><a href="contact.html"><p class="fs-xs">Contact Us</p></a></li>
@@ -66,23 +66,24 @@
 
     <div id="contact-main" class="contact-main">
         <div id="contact-container" class="contact-container">
-            <form name="contact-Form" id="contact-Form"  onsubmit="">
-              <label for="fname">First Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="Your First Name..">
-          
-              <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="lastname" placeholder="Your Last Name..">
-          
-              <label for="email">Email ID</label>
-              <input type="text" id="email" name="email"  placeholder="Your Email ID..">
+            <form name="contact-Form" id="contact-Form" method="post"
+                  th:action="@{/contact.html}" th:object="${contact}">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstName" placeholder="First name" th:field="*{firstName}" required>
 
-              <label for="phone">Contact Number</label>
-              <input type="text" id="phone" name="phone"  placeholder="Your Contact No..">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastName" placeholder="Last name" th:field="*{lastName}" required>
 
-              <label for="msg">Message</label>
-              <textarea id="msg" name="msg" placeholder="Tell us more.." style="height:100px"></textarea>
-              <br><br>
-              <input type="submit" value="Submit">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email"  placeholder="Email" th:field="*{email}" required>
+
+                <label for="phone">Contact Number</label>
+                <input type="text" id="phone" name="phone"  placeholder="Contact No" th:field="*{number}" required>
+
+                <label for="msg">Message</label>
+                <textarea id="msg" name="msg" placeholder="Tell us more.." style="height:100px" th:field="*{message}" required></textarea>
+                <br><br>
+                <input type="submit" value="Submit">
             </form>
         </div>
     </div>
