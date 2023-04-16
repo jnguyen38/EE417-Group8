@@ -37,8 +37,13 @@
 
     <main class="d-flex-col-c gap-2 my-5 py-5">
         <h1 class="fw-7 fs-xl">Sign In</h1>
-        <form class="login d-flex-col-c gap-1 p-5" id="loginForm" method="post"
+        <form class="login d-flex-col-c gap-1 p-5 rounded" id="loginForm" method="post"
               th:action="@{/signin.html}" th:object="${user}">
+
+            <div class="warning rounded" id="warning" style="display: none">
+                <p>Invalid email or password</p>
+            </div>
+
             <label for="email">Email</label>
             <input class="loginEmail" type="text" placeholder="Email" name="email" id="email"
                    autocomplete="email" th:field="*{username}" required>
@@ -53,6 +58,7 @@
 
 
     <script src="js/components/footer.js" type="text/javascript"></script>
+    <script src="js/signin.js" type="text/javascript"></script>
 
     </body>
 </html>

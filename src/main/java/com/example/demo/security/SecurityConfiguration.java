@@ -33,6 +33,7 @@ public class SecurityConfiguration {
                     .loginPage("/signin.html")
                     .loginProcessingUrl("/signin.html")
                     .defaultSuccessUrl("/?success")
+                    .failureUrl("/signin.html?error=true")
                     .permitAll()
             )
             .logout(LogoutConfigurer::permitAll);

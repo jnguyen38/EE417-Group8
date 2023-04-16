@@ -259,6 +259,23 @@ a:link { text-decoration: none; }
     max-width: min(100%, 700px);
 }
 
+.warning {
+    background: #facaca;
+    color: #ff3030;
+    animation: warningShake 100ms;
+    animation-iteration-count: 3;
+    padding: 8px 12px;
+    margin: 10px;
+}
+
+@keyframes warningShake {
+    from, to {transform: translateX(0);}
+    25% {transform: translateX(7px);}
+    75% {transform: translateX(-7px);}
+
+
+}
+
 @font-face {
     font-family: Outfit;
     font-weight: 100 900;
