@@ -10,7 +10,6 @@ let queryId = params["id"];
 
 function addRow(item, quantity, cost) {
     // Create an empty <tr> element
-    console.log(orderTable.rows.length)
     let row = orderTable.insertRow(orderTable.rows.length - 1);
 
     // Insert new cells to the corresponding columns of the table

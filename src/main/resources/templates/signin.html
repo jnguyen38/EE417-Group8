@@ -36,13 +36,13 @@
     </header>
 
     <main class="d-flex-col-c gap-2 my-5 py-5">
-        <h1 class="fw-5 fs-xl">Sign In</h1>
-        <form class="login d-flex-col-c gap-1 p-5" name="loginForm" method="post"
+        <h1 class="fw-7 fs-xl">Sign In</h1>
+        <form class="login d-flex-col-c gap-1 p-5" id="loginForm" method="post"
               th:action="@{/signin.html}" th:object="${user}">
-            <label for="email"><b>Email</b></label>
+            <label for="email">Email</label>
             <input class="loginEmail" type="text" placeholder="Email" name="email" id="email"
                    autocomplete="email" th:field="*{username}" required>
-            <label for="password"><b>Password</b></label>
+            <label for="password">Password</label>
             <input class="loginPass" type="password" placeholder="Password" id="password"
                    name="password" autocomplete="password" th:field="*{password}" required>
             <input type="submit" value="Login">

@@ -3,6 +3,12 @@
     background-color: #EEE;
 }
 
+#loginForm label {
+    font-size: small;
+    font-weight: 200;
+    font-family: Outfit, sans-serif;
+}
+
 label, input {
     font-family: Outfit, sans-serif;
 }
