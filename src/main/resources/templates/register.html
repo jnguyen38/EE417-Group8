@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/index.css">
@@ -18,28 +18,32 @@
 <body>
     <custom-header></custom-header>
 
-    <div id="register-main" class="register-main">
-        <div id="register-container" class="register-container">
-            <form name="register-Form" id="register-Form"  onsubmit="">
-              <label for="fname">First Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="Your First Name..">
-          
-              <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="lastname" placeholder="Your Last Name..">
-          
-              <label for="email">Email ID</label>
-              <input type="text" id="email" name="email"  placeholder="Your Email ID..">
+    <div id="register-main" class="d-flex-col-c py-5 my-5 gap-5">
+        <h1 class="fw-7 fs-xl">Register</h1>
+        <div id="register-container" class="register-container rounded p-5">
+            <form name="register-Form" id="register-Form" method="post" th:action="@{/register.html}" th:object="${user}">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="First Name" th:field="*{firstName}">
 
-              <label for="phone">Contact Number</label>
-              <input type="text" id="phone" name="phone"  placeholder="Your Contact No..">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Last Name" th:field="*{lastName}">
 
-              <label for="address">Address</label>
-              <textarea id="address" name="address" placeholder="Address.." style="height:50px"></textarea>
+                <label for="email">Email ID</label>
+                <input type="text" id="email" name="email"  placeholder="Email" th:field="*{email}">
 
-              <label for="eir">EIR Code</label>
-              <input type="text" id="eir" name="eir"  placeholder="Your Eir Code..">
-              <br><br>
-              <input type="submit" value="Register">
+                <label for="phone">Contact Number</label>
+                <input type="text" id="phone" name="phone"  placeholder="Contact No" th:field="*{number}">
+
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Address" style="height: 40px" th:field="*{address}"></textarea>
+
+                <label for="eir">EIR Code</label>
+                <input type="text" id="eir" name="eir"  placeholder="Eir Code" th:field="*{eircode}">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"  placeholder="Password" th:field="*{password}">
+
+                <input type="submit" value="Register" class="my-5">
             </form>
         </div>
     </div>

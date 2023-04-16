@@ -16,13 +16,13 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class SignUpController {
-    @GetMapping("/signup.html")
+    @GetMapping("/register.html")
     public String signupForm(Model model) {
         model.addAttribute("user", new User());
-        return "signup.html";
+        return "register.html";
     }
 
-    @PostMapping("/signup.html")
+    @PostMapping("/register.html")
     public String signupSubmit(@ModelAttribute User user, Model model) {
         model.addAttribute("user", user);
 
@@ -38,6 +38,6 @@ public class SignUpController {
         RestOperations restTemplate = new RestTemplate();
         restTemplate.postForObject("http://localhost:8080/api/users/add", request, String.class);
 
-        return "submitted.html";
+        return "index.html";
     }
 }
