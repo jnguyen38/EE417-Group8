@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 import com.example.demo.classes.Contact;
-import com.example.demo.classes.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.http.HttpEntity;
