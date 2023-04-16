@@ -19,11 +19,27 @@
     </style>
 </head>
 <body>
-    <custom-header></custom-header>
+    <!--Universal site header-->
+    <header class="d-flex jc-sb header">
+        <a class="ml-5 d-flex-row-c" href="index.html"><img src="images/logo_main.jpg" alt=""></a>
+        <div class="navbar mr-2">
+            <ul>
+                <li><a href="index.html"><p class="fs-xs">Home</p></a></li>
+                <li><a href="menu.html"><p class="fs-xs">MENU</p></a></li>
+                <li><a href="about.html"><p class="fs-xs">About Us</p></a></li>
+                <li><a href="gallery.html"><p class="fs-xs">Gallery</p></a></li>
+                <li><a href="contact.html"><p class="fs-xs">Contact Us</p></a></li>
+                <li sec:authorize="isAnonymous()"><a href="signin.html" class="signInBtn"><p class="fs-xs">Login</p></a></li>
+                <li sec:authorize="isAnonymous()"><a href="register.html" class="signInBtn"><p class="fs-xs">Register</p></a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="admin.html" class="signInBtn"><p class="fs-xs">Admin</p></a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="signInBtn"><p class="fs-xs">Logout</p></a></li>
+            </ul>
+        </div>
+    </header>
 
     <main class="d-flex-col-c my-5 py-5">
         <div class="feedbackCont rounded d-flex-col-c gap-3 p-3">
-            <h1 class="fs-lg fw-5 text-center">Thank you for reaching out!</h1>
+            <h1 class="fs-lg fw-5 text-center">Thank You!</h1>
             <p class="fs-sm fw-2 text-center">
                 We really appreciate your time to reach out to us and will get back to you
                 as soon as we can!
