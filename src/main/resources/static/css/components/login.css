@@ -1,48 +1,35 @@
-
-
 .login {
     width: 400px;
-    margin: auto;
-    margin-top: 200px;
-    margin-bottom: 50px;
+    background-color: #EEE;
+}
+
+label, input {
     font-family: Outfit, sans-serif;
 }
 
-.login > form {
-    background-color: #EEE;
-    border: 3px solid rgba(255,255,255,0.5);
+.loginPass, .loginEmail {
+    width: 100%;
+    padding: 12px 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
 }
 
-.container {
-    padding: 16px;
-    padding-bottom: 50px;
+.login input[type="submit"] {
+    background-color: #FF6A13;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    width: 50%;
+    font-size: 20px;
+    font-family: Outfit, sans-serif;
+    transition: 250ms ease-in-out;
 }
-  
 
-.container > input[type=text], input[type=password] {
+.login input[type="submit"]:hover {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-  
-
-.container > button {
-  background-color: #FF6A13;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 30px;
-  font-size: 20px;
-  font-family: Outfit, sans-serif;
-}
-
-.container > button:hover {
-  opacity: 0.8;
 }
 

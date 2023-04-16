@@ -45,7 +45,6 @@
     display: inline-block;
     margin: 0 1vw;
     position: relative;
-    font-size: 1vw;
     font-family: Outfit, sans-serif;
 
 }
@@ -73,12 +72,11 @@
     text-decoration: none;
     color: white !important;
     border: none;
-    padding: 0.9vw 3vw;
-    font-size: 1vw;
+    padding: 10px 30px;
     background: #FF6A13;
     position: relative;
     cursor: pointer;
-    transition: 250ms;
+    transition: 250ms ease-in-out;
 }
 
 .signInBtn:hover{

@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class User {
     private String password;
     private String email;
+    private String username;
     private String firstName;
     private String lastName;
     private String number;
@@ -21,6 +22,7 @@ public class User {
         this.id = id;
         this.role = role;
         this.email = email;
+        this.username = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.number = number;
@@ -45,6 +47,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/index.css">
@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Kalam&family=Righteous&family=Unbounded&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Register</title>
 </head>
 <body>
     <custom-header></custom-header>
@@ -21,7 +22,7 @@
     <div id="register-main" class="d-flex-col-c py-5 my-5 gap-5">
         <h1 class="fw-7 fs-xl">Register</h1>
         <div id="register-container" class="register-container rounded p-5">
-            <form name="register-Form" id="register-Form" method="post" th:action="@{/register.html}" th:object="${user}">
+            <form name="register-Form" id="registerForm" method="post" th:action="@{/register.html}" th:object="${user}">
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="First Name" th:field="*{firstName}">
 

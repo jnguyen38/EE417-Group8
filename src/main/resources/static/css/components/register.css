@@ -1,6 +1,9 @@
 
+#registerForm label {
+    font-size: small;
+}
 
-.register-container > form > input[type=text], textarea {
+#registerForm input[type="password"], #registerForm input[type="text"], textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -8,7 +11,7 @@
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
-    resize: vertical;
+    resize: none;
 }
 
 .register-container > form > input[type=submit] {

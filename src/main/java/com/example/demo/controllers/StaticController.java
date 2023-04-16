@@ -54,4 +54,8 @@ public class StaticController {
     public String feedback() {
         return "feedback.html";
     }
+    @GetMapping ("submitted.html")
+    public String submitted() {
+        return "submitted.html";
+    }
 }
