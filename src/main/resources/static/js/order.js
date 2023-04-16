@@ -76,7 +76,7 @@ if (queryId) {
         } else {
             alert('An error occurred while placing your order. Please try again.');
         }
-    }).then(data => {
-        window.location.replace(`feedback.html?id=${data}`);
+    }).then(() => {
+        window.location.replace(`feedback.html`);
     });
 });
