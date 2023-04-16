@@ -66,13 +66,17 @@ if (queryId) {
     let message = document.querySelector('textarea[name="message"]').value;;
     let id = queryId;
 
-    fetch(`/api/feedback/add`, {
+    await fetch(`/api/feedback/add`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({id, message, rating})
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        });
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            alert('An error occurred while placing your order. Please try again.');
+        }
+    }).then(data => {
+        window.location.replace(`feedback.html?id=${data}`);
+    });
 });

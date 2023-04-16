@@ -17,10 +17,10 @@ public class FeedbackRestController {
 
     // Map POST Request for adding feedback to the MySQL Database
     @PostMapping(path="/add")
-    public @ResponseBody String addFeedback (@RequestBody Feedback feedback) {
+    public @ResponseBody Integer addFeedback (@RequestBody Feedback feedback) {
         // Save to MySQL Repo
         feedbackRepository.save(feedback);
-        return "Saved";
+        return feedback.getId();
     }
 
     // Map GET Request for receiving all information about feedback

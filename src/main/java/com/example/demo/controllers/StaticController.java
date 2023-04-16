@@ -50,4 +50,8 @@ public class StaticController {
     public String order() {
         return "order.html";
     }
+    @GetMapping ("feedback.html")
+    public String feedback() {
+        return "feedback.html";
+    }
 }
