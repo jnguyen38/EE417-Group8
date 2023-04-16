@@ -1,0 +1,43 @@
+
+#registerForm label {
+    font-size: small;
+}
+
+#registerForm input[type="password"], #registerForm input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: none;
+}
+
+.register-container > form > input[type=submit] {
+    background-color: #FF6A13;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+    margin:auto;
+    display: block;
+    font-family: Outfit, sans-serif;
+    font-size: 20px;
+}
+
+.register-container > form > input[type=submit]:hover {
+    background-color: #FF6A13cc;
+}
+
+.register-container > form > input::placeholder {
+    font-family: Outfit, sans-serif;
+}
+
+.register-container {
+    background-color: #EEE;
+    padding: 20px;
+    width: 50%;
+}

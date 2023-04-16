@@ -1,0 +1,85 @@
+.header{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    top:0;
+    left: 0;
+    background-color: #FFEA85;
+    text-align: left;
+    height: var(--header-height);
+}
+
+.header a {
+    height: 100%;
+}
+
+.header img{
+    height: 90%;
+    object-fit: cover;
+}
+
+.banner{
+    width: 100%;
+    height: 550px;
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(../../images/Header7.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 25px;
+}
+
+.content{
+    width: min(650px, 90%);
+    height: 300px;
+    background-color: #333333AA;
+    color: #fff;
+}
+
+.navbar{
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 1vw;
+    position: relative;
+    font-family: Outfit, sans-serif;
+
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #FF6A13;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 250ms;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.signInBtn{
+    display: inline-block;
+    text-decoration: none;
+    color: white !important;
+    border: none;
+    padding: 10px 30px;
+    background: #FF6A13;
+    position: relative;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+
+.signInBtn:hover{
+    background: white;
+    color: #FF6A13 !important;
+}
